@@ -1,0 +1,133 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cumulus-gutenberg/legacy-menu",
+  "version": "0.1.0",
+  "title": "Legacy Menu",
+  "category": "cmls",
+  "icon": "menu-alt3",
+  "description": "WordPress block to include a Classic Menu in block themes.",
+  "supports": {
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "alignWide": true,
+    "ariaLabel": true,
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "defaultControls": {
+        "color": false,
+        "radius": false,
+        "style": false,
+        "width": false
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "defaultControls": {
+        "color": false,
+        "radius": false,
+        "style": false,
+        "width": false
+      }
+    },
+    "className": true,
+    "color": {
+      "background": true,
+      "__experimentalDuotone": false,
+      "enableContrastChecker": true,
+      "gradients": true,
+      "link": true,
+      "text": true
+    },
+    "customClassName": true,
+    "defaultStylePicker": true,
+    "dimensions": {
+      "minHeight": true
+    },
+    "html": false,
+    "inserter": true,
+    "filter": {
+      "duotone": false
+    },
+    "layout": {
+      "allowJustification": false,
+      "allowOrientation": true,
+      "allowSizingOnChildren": true,
+      "allowSwitching": false,
+      "default": {
+        "type": "flex",
+        "orientation": "horizontal",
+        "justifyContent": "left"
+      }
+    },
+    "lock": true,
+    "multiple": true,
+    "position": {
+      "sticky": false
+    },
+    "reusable": true,
+    "__experimentalSettings": true,
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": [
+        "horizontal",
+        "vertical"
+      ]
+    },
+    "typography": {
+      "align": true,
+      "fontSize": true,
+      "lineHeight": true,
+      "fontWeight": true,
+      "fontStyle": true,
+      "textTransform": true,
+      "__experimentalFontWeight": true,
+      "__experimentalFontStyle": true,
+      "__experimentalTextTransform": true
+    }
+  },
+  "textdomain": "wp-legacy-menu-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "menuId": {
+      "type": "number"
+    },
+    "menuDepth": {
+      "type": "number",
+      "default": 1
+    },
+    "justifyContent": {
+      "type": "string"
+    },
+    "verticalAlignment": {
+      "type": "string"
+    },
+    "tabIndex": {
+      "type": "number"
+    },
+    "ariaRole": {
+      "type": "string",
+      "default": "menu"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "spacing": {
+          "blockGap": "var:preset|spacing|40"
+        }
+      }
+    }
+  }
+}

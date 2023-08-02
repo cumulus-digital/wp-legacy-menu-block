@@ -1,0 +1,49 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+nav.wp-block-cumulus-gutenberg-legacy-menu {
+	display: block;
+
+	&.items-aligned-top {
+		align-items: flex-start;
+	}
+	&.items-aligned-center {
+		align-items: center;
+	}
+	&.items-aligned-bottom {
+		align-items: flex-end;
+	}
+
+	> * {
+		display: flex;
+		flex-wrap: wrap;
+		gap: inherit;
+		column-gap: inherit;
+		row-gap: inherit;
+		justify-content: inherit;
+		align-items: inherit;
+		margin: 0;
+		padding: 0;
+
+		list-style: none;
+
+		li {
+			position: relative;
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+			white-space: nowrap;
+		}
+		ul {
+			display: flex;
+			flex-direction: column;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	}
+}

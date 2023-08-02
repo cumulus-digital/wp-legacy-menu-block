@@ -1,0 +1,21 @@
+{
+    "require": {
+        "php": ">=7.4.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.22",
+        "vena/php-cs-fixer-wordpress": "^1.0"
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "autoload": {
+        "psr-4": {
+            "vena\\WordpressSettingsBuilder\\": "src/php"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "./.phpcs-tokens/refresh.sh",
+        "post-update-cmd": "./.phpcs-tokens/refresh.sh"
+    }
+}
