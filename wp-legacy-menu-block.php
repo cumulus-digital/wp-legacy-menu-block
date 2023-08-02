@@ -32,7 +32,7 @@ function render_callback( $attributes, $content, $block ) {
 		return 'No menu selected';
 	}
 
-	$has_blockgap = _wp_array_get( $attributes, array( 'style', 'spacing', 'blockGap' ) );
+	$has_blockgap = \_wp_array_get( $attributes, array( 'style', 'spacing', 'blockGap' ) );
 	$style_class  = array(
 		'style' => '',
 		'class' => '',
@@ -42,7 +42,7 @@ function render_callback( $attributes, $content, $block ) {
 		// wp_style_engine_get_styles may not support blockGap yet, causing blockGap
 		// to not be included in get_block_wrapper_attributes
 		$style_attrs       = \wp_style_engine_get_styles( $attributes['style'] );
-		$supports_blockgap = _wp_array_get( $style_attrs, array( 'declarations', 'blockGap' ) );
+		$supports_blockgap = \_wp_array_get( $style_attrs, array( 'declarations', 'blockGap' ) );
 
 		if ( ! $supports_blockgap ) {
 			// we abuse the fact tht blockGap and margin should support the same attributes
@@ -52,7 +52,7 @@ function render_callback( $attributes, $content, $block ) {
 				),
 			);
 			$parsed_style = \wp_style_engine_get_styles( $temp_style );
-			$gap          = _wp_array_get( $parsed_style, array( 'css' ) );
+			$gap          = \_wp_array_get( $parsed_style, array( 'css' ) );
 			if ( $gap ) {
 				// Replace margin properties with gap properties
 				$gap = \str_replace(
@@ -74,7 +74,7 @@ function render_callback( $attributes, $content, $block ) {
 		'center',
 		'space-between',
 	);
-	$has_justification = _wp_array_get( $attributes, array( 'justifyContent' ) );
+	$has_justification = \_wp_array_get( $attributes, array( 'justifyContent' ) );
 	if ( $has_justification && \in_array( $has_justification, $valid_justification ) ) {
 		$style_class['class'] .= " items-justified-{$has_justification}";
 	}
@@ -84,7 +84,7 @@ function render_callback( $attributes, $content, $block ) {
 		'center',
 		'bottom',
 	);
-	$has_alignment = _wp_array_get( $attributes, array( 'verticalAlignment' ) );
+	$has_alignment = \_wp_array_get( $attributes, array( 'verticalAlignment' ) );
 	if ( $has_alignment && \in_array( $has_alignment, $valid_aligns ) ) {
 		$style_class['class'] .= " items-aligned-{$has_alignment}";
 	}
