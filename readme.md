@@ -23,6 +23,10 @@ release zip to your plugins directory.
 
 ## Changelog
 
+### 0.1.2
+* Apply aria-role and tabindex to ul instead of nav container
+* Namespacing issues
+
 ### 0.1.0
 * Release
 

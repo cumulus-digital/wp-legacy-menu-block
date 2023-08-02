@@ -4,7 +4,7 @@
  * Description:       WordPress block to include a Classic Menu in block themes.
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.1.1
+ * Version:           0.1.2
  * Author:            vena
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -94,23 +94,35 @@ function render_callback( $attributes, $content, $block ) {
 		$val = \trim( $val, " \t\n\r\0\x0B;" );
 	} );
 
-	$extra_attributes = \array_filter( array(
+	$ul_attributes = \array_filter( array(
 		'role'     => $attributes['ariaRole'] ?? 'menu',
 		'tabindex' => $attributes['tabIndex'] ?? null,
 	) );
 
 	return \sprintf(
-		'<nav %1$s %2$s>%3$s</nav>',
+		'<nav %1$s>%2$s</nav>',
 		\get_block_wrapper_attributes( $style_class ),
-		\implode( ' ', \array_map( function ( $v, $k ) {
-			return $k . '="' . \esc_attr( $v ) . '"';
-		}, $extra_attributes, \array_keys( $extra_attributes ) ) ),
 		\wp_nav_menu(
 			array(
-				'echo'      => false,
-				'menu'      => $attributes['menuId'],
-				'container' => false,
-				'depth'     => $attributes['menuDepth'] ?? 1,
+				'echo'       => false,
+				'menu'       => $attributes['menuId'],
+				'container'  => false,
+				'depth'      => $attributes['menuDepth'] ?? 1,
+				'items_wrap' => '<ul id="%1$s" class="%2$s" '
+								. \implode(
+									' ',
+									\array_map(
+										function (
+											$v,
+											$k
+										) {
+											return $k . '="' . \esc_attr( $v ) . '"';
+										},
+										$ul_attributes,
+										\array_keys( $ul_attributes )
+									)
+								)
+								. '>%3$s</ul>',
 			)
 		)
 	);
