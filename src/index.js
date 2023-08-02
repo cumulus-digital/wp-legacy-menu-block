@@ -21,7 +21,7 @@ import './style.scss';
  */
 import Edit from './edit';
 import metadata from './block.json';
-import variations from './variations';
+//import variations from './variations';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -33,8 +33,4 @@ registerBlockType( metadata.name, {
 	 * @see ./edit.js
 	 */
 	edit: Edit,
-} );
-
-variations.forEach( ( variation ) => {
-	wp.blocks.registerBlockVariation( metadata.name, variation );
 } );
